@@ -4,6 +4,7 @@ const inquirer = require('inquirer');
 
 
 const promptUser = () => {
+    // the inquire prompt method is an array of objects known as the question object
     return inquirer.prompt([
     {
         type: 'input',
@@ -48,7 +49,7 @@ const promptUser = () => {
             }
         }
     }
-  ]);
+]);
 };
 
 const promptProject = portfolioData => {
@@ -121,6 +122,7 @@ const promptProject = portfolioData => {
         default: false
     }
     ])
+    // the then function is the answer object, also know as a Promise
     .then(projectData => {
         portfolioData.projects.push(projectData);
         if (projectData.confirmAddProject) {
@@ -131,6 +133,10 @@ const promptProject = portfolioData => {
     });   
 };
 
+// function called to get answers to profile questions
+// then method to the function promptUser (promise)
+// which then calls profolioData - a second promise.  
+// within portfolioData is another function call -- the final promise for the inquirer prompt
 promptUser()
     .then(promptProject)
     .then(portfolioData => {
