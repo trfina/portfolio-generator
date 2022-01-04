@@ -1,20 +1,22 @@
 const inquirer = require('inquirer');
+// const fs = require('fs');
+// const generatePage = require('./src/page-template');
 
 
 const promptUser = () => {
-  return inquirer.prompt([
+    return inquirer.prompt([
     {
-      type: 'input',
-      name: 'name',
-      message: 'What is your name? (Required)',
-      validate: nameInput => {
-          if (nameInput) {
-              return true;
-          } else {
-              console.log('Please enter your name!');
-              return false;
-          }
-      } 
+        type: 'input',
+        name: 'name',
+        message: 'What is your name? (Required)',
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log('Please enter your name!');
+                return false;
+            }
+        } 
     },
     {
         type: 'input',
@@ -134,9 +136,8 @@ promptUser()
     .then(portfolioData => {
         console.log(portfolioData);
     });
+ 
 
-// const fs = require('fs');
-// const generatePage = require('./src/page-template');
 
 // const pageHTML = generatePage (name, github);
 
